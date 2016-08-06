@@ -79,7 +79,7 @@ public class App
 					break;
 				default:
 					displayResult("Invalid option.Please input an option from the below options:");
-				break;
+					break;
 				}
 			} catch (NumberFormatException e) {
 				logger.error("Invalid Option:Please input a number");
