@@ -43,53 +43,54 @@ public class App
 		scanner = new Scanner(System.in);
 		while (true) {
 			select = scanner.nextLine();
-				try {
-					int option = Integer.parseInt(select);
-					Stock userStock;
-					double userPrice;
+			try {
+				int option = Integer.parseInt(select);
+				Stock userStock;
+				double userPrice;
 
-					switch (option) {
-					case 1:
-						userStock = getUserStock();
-						userPrice = getUserStockPrice();
-						calculateDividendYield(userStock, userPrice);
-						break;
-					case 2:
-						userStock = getUserStock();
-						userPrice = getUserStockPrice();
-						calculatePERatio(userStock, userPrice);
-						break;
-					case 3:
-						userStock = getUserStock();
-						int shareQuantity = getUserShareQuantity();
-						Indicator userIndicator = getUserIndicator();
-						userPrice = getUserStockPrice();
-						recordTrade(userStock, shareQuantity, userIndicator, userPrice);
-						break;
-					case 4:
-						userStock = getUserStock();
-						calculateVolumeWeightedStockPrice(userStock);
-						break;
-					case 5:
-						calculateGBCE();
-						break;
-					case 6:
-						scanner.close();
-						System.exit(0);
-						break;
-					default:displayResult("Invalid option.Please input an option from the below options:");
-					    break;
-					}
-				} catch (NumberFormatException e) {
-					logger.error("Invalid Option:Please input a number");
-				} catch (StockMarketException e1) {
-					logger.error(e1.getMessage());
+				switch (option) {
+				case 1:
+					userStock = getUserStock();
+					userPrice = getUserStockPrice();
+					calculateDividendYield(userStock, userPrice);
+					break;
+				case 2:
+					userStock = getUserStock();
+					userPrice = getUserStockPrice();
+					calculatePERatio(userStock, userPrice);
+					break;
+				case 3:
+					userStock = getUserStock();
+					int shareQuantity = getUserShareQuantity();
+					Indicator userIndicator = getUserIndicator();
+					userPrice = getUserStockPrice();
+					recordTrade(userStock, shareQuantity, userIndicator, userPrice);
+					break;
+				case 4:
+					userStock = getUserStock();
+					calculateVolumeWeightedStockPrice(userStock);
+					break;
+				case 5:
+					calculateGBCE();
+					break;
+				case 6:
+					scanner.close();
+					System.exit(0);
+					break;
+				default:
+					displayResult("Invalid option.Please input an option from the below options:");
+				break;
 				}
-				System.out.println("");
-				displayMenu();
+			} catch (NumberFormatException e) {
+				logger.error("Invalid Option:Please input a number");
+			} catch (StockMarketException e1) {
+				logger.error(e1.getMessage());
 			}
+			System.out.println("");
+			displayMenu();
 		}
-	
+	}
+
 	private void sampleStocks() {
 		stockService.addStock(new Stock("TEA", StockType.COMMON, 0, 0, 100));
 		stockService.addStock(new Stock("POP", StockType.COMMON, 8, 0, 100));
@@ -97,7 +98,7 @@ public class App
 		stockService.addStock(new Stock("GIN", StockType.PREFERRED, 8, 2, 100));
 		stockService.addStock(new Stock("JOE", StockType.COMMON, 13, 0, 250));
 	}
-	
+
 	private static void displayMenu() {
 		System.out.println("");
 		System.out.println("JPMorgan - Super Simple Stock Market Assignment");
@@ -111,7 +112,7 @@ public class App
 		System.out.println("6: Exit");
 	}
 
-	
+
 	private Stock getUserStock() throws StockMarketException {
 		System.out.println("Please input stock symbol");
 		String stockSymbol = scanner.nextLine();
@@ -160,7 +161,7 @@ public class App
 		}
 	}
 
-	
+
 	private void calculateDividendYield(Stock stock, double price) {
 
 		double result = stockService.calculateDividendYield(stock, price);
