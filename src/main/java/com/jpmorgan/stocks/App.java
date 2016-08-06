@@ -101,7 +101,7 @@ public class App
 
 	private static void displayMenu() {
 		System.out.println("");
-		System.out.println("JPMorgan - Super Simple Stock Market Assignment");
+		System.out.println("JPMorgan : Super Simple Stock Market Assignment");
 		System.out.println("");
 		System.out.println("Please input an option from the following:");
 		System.out.println("1: Calculate dividend yield for a given stock");
