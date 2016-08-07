@@ -82,7 +82,7 @@ public class App
 					break;
 				}
 			} catch (NumberFormatException e) {
-				logger.error("Invalid Option:Please input a number");
+				logger.error("Invalid Option: Please input a number");
 			} catch (StockMarketException e1) {
 				logger.error(e1.getMessage());
 			}
