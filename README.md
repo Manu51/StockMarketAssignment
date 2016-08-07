@@ -31,7 +31,7 @@ import the project in Eclipse as a maven project.
 
 Alternatively, on console run the next command, working in the folder StockMarketAssignment:
 
- maven clean install
+ mvn clean install
  
 This will compile the code and will execute the unit test.
 
